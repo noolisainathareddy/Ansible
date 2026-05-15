@@ -1,0 +1,113 @@
+After installing Ansible, it creates a default configuration file under /etc/ansible/ansible.cfg
+
+ansible-config list ----> To list ansible configurations
+ansible-config view ----> Show current config file 
+ansible-config dump ----> Show the current settings
+
+Ansible Inventory:
+	Agnetless -- You don't need to install any software on target machine. 
+	Linux - Connect using SSH
+	Windows - PowerShell Remote
+	Information about target systems will configure under /etc/anisble/hosts
+	
+	Parent and child relationship
+	
+	[all_servers:childres]
+	web_servers
+	db_servers
+	
+	[web_servers]
+	web1.company.com
+	web2.company.com
+	
+	[db_servers]
+	db1.company_com
+	
+	
+Variables:
+
+dns_server: 10.1.1.0
+
+Refer it as {{ dns_server }}
+
+This is called Jinja2 Templating 
+
+Types:
+	String variables
+	Number variables
+	Boolean variable
+	List Variable
+	Dictionary Variable
+	
+Scope:
+	Host
+	Global scope ----> Pass variabel as extra-variable via CLI
+	
+Magic Variables:
+	Share other hosts variables
+	
+	hostvar[web1].dns_server
+
+Ansible Facts:
+	It will fetch the system info, whether you run it or not. Ansible will run it for you, by default. 
+	
+Playbook:
+	Syntax: ansible-playbook <name_of_the_playbook>
+	
+	
+Verify Playbook:
+	check Mode --> Dry Mode
+	Diff Mode:
+		Gives you before-and-after comparison of playbook changes.
+		Understand the changes before you apply. 
+		
+	ansible-playbook <name_of_the file> --diff --check
+	ansible-playbook <name_of_the file> --syntax-check
+	
+Ansible lint:
+	It checks your code for potential errors, bugs, stylistic errors, and supicious contruct. 
+	Ansible lint is a command line tool that performs linting on Ansible playbooks, roles and collections. 
+	
+	Syntax: ansible-lint <name_of_the_yaml>
+	
+	
+	
+Ansible Conditions:
+	When
+	
+Ansible Loops:
+
+Loops or with_items 
+ 
+
+Sample:	
+	- name: Add user to host
+	  hosts: localhost
+	  tasks:
+	  	-	name: Add user
+	  		users: name='{{ item }}' state=present
+	  		loops:
+	  			- joe
+	  			- sai
+	  			- hema
+	  			- siva
+	  			
+Ansible Modules:
+	System [users, iptables, Group, Hostname, Ping, Timezone, Systemd, Lvol, Lvg, Mount]
+	Command [commands/scripts]
+	Files [ACL, Archive, Copy, Find, File, ]
+	Database [Mongodd, mssql]
+	Cloud [Amazon]
+	Windows [Win_copy, Win_command, Win_file, Win_path, Win_shell]
+	Service 
+	
+Handlers:
+	The tasks triggered by event/notification
+	Defined in playbook, executed when notified by a task 
+	Manage actions based on system state/configuration changes. 
+	
+Ansible Roles:
+	To start a mysql server, you need to run few commands, and those commands under a role. Create a playbook and refer to the role. 
+
+Ansible Collection:
+	It's a bundle, contains roles, plugins, modules
