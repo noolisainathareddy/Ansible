@@ -1,0 +1,9 @@
+---
+- name: File Creation
+  hosts: web1
+  gather_facts: no
+  tasks:
+    - name: Create a file
+      file:
+        path: /root/myfile.txt
+        state: touch 
