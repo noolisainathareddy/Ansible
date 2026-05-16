@@ -1,0 +1,8 @@
+---
+- name: Gather Facts
+  hosts: localhost
+  gather_facts: yes
+  tasks:
+    - name: Fetching Facts
+      debug:
+        var: ansible_distribution_version
