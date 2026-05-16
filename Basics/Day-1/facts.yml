@@ -5,4 +5,13 @@
   tasks:
     - name: Fetching Facts
       debug:
-        var: ansible_distribution_version
+        var: ansible_facts
+---
+---
+- hosts: web1
+  gather_facts: yes
+  tasks:
+    - name: Get server architecture
+      copy:
+        content: "{{ ansible_facts }}"
+        dest: /home/thor/playbooks/web/web-facts.txt
