@@ -1,0 +1,2 @@
+To copy a public key to remote host. Use below command. 
+ssh-copy-id -i /home/thor/.ssh/ansible ec2-user@<host_ip>

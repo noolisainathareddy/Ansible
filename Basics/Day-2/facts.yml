@@ -1,0 +1,9 @@
+---
+- name: Facts
+  hosts: localhost
+  gather_facts: yes
+  tasks:
+    - name: Copy facts to local
+      copy:
+        content: "{{ ansible_facts }}"
+        dest: /tmp/ansible_facts.txt

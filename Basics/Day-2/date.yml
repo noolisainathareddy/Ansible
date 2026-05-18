@@ -1,0 +1,11 @@
+---
+- name: Pring date
+  hosts: web1
+  gather_facts: no
+  tasks:
+    - name: Run the date command
+      command: date
+      register: date_results
+    - name: Print the date
+      debug:
+        var: date_results

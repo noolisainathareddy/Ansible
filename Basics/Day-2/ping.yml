@@ -1,0 +1,11 @@
+---
+- name: Ping host
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Ping machine
+      ping:
+      register: ping_results
+    - name: Shoud output
+      debug:
+        var: ping_results
