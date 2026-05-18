@@ -1,0 +1,9 @@
+---
+- name: Install httpd
+  gather_facts: no
+  hosts: web1
+  tasks:
+    - name: install httpd
+      yum:
+        name: httpd
+        state: installed

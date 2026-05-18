@@ -1,0 +1,40 @@
+Package Manager:
+    Package manager varies on different os, like yum, apt, dnf.
+    Ansible uses a "package" module, no need to specify it while installing any software on host. 
+
+Service:
+    It is used to manage service, to start, stop or re-start a service. 
+
+Firewalld:
+    On centos and redhat, you can configure firewall rules. 
+    A rule allow/block a traffic form a port or protocal. 
+
+LVG module:
+    To create lvm volume storage. 
+    once it is created, we can create logicla volume against lvm. 
+
+File System:
+    It is used to create a file system. 
+
+Mount: 
+    It is used to mount the volume. 
+
+File:
+    To create files and folders. 
+
+Archive:
+    To zip files/folders
+
+Unarchive:
+    To unzip the zipped folders. 
+
+Cron:
+    Used to create cron jobs. 
+    */2     *     *    *     * 
+    minute hour daya month weekday
+
+Users and Groups:
+    Used to add or remove users from group. 
+
+authorized_keys:
+    To setup SSH keys on the remote host. 
