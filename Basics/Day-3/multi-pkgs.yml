@@ -1,0 +1,18 @@
+---
+- name: Install sudo
+  gather_facts: no
+  hosts: web1
+  tasks:
+    - name: Install sudo
+      yum:
+        name: sudo
+        state: latest
+- name: Upgrade vsftpd
+  gather_facts: no
+  hosts: web1
+  tasks:
+    - name: Upgrade software
+      yum:
+        name: vsftpd-3.0.3
+        state: present
+        allow_downgrade: yes
