@@ -1,0 +1,9 @@
+---
+- hosts: web1
+  name: Install iotop
+  gather_facts: no
+  tasks:
+    - name: Install iotop package
+      yum:
+        name: iotop
+        state: present
