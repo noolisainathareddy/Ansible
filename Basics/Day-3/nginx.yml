@@ -1,0 +1,18 @@
+---
+- name: Install nginx
+  gather_facts: no
+  hosts: web1
+  tasks:
+    - name: Install 
+      yum:  
+        name: nginx
+        state: present
+- name: Satrt nginx
+  gather_facts: no
+  hosts: web1
+  tasks:
+    - name: Start nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes

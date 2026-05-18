@@ -7,3 +7,11 @@
       yum:
         name: httpd
         state: installed
+- name: Start httpd service
+  gather_facts: no
+  hosts: web1
+  tasks:
+    - name: Start the service
+      service:
+        name: httpd
+        state: started
