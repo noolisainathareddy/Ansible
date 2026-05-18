@@ -1,0 +1,9 @@
+---
+- name: Install Wget
+  hosts: web1
+  gather_facts: no
+  tasks:
+    - name: Install Wget
+      yum:
+        state: installed 
+        name: https://mirror.stream.centos.org/9-stream/AppStream/x86_64/os/Packages/wget-1.21.1-8.el9.x86_64.rpm
