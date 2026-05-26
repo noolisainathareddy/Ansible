@@ -1,0 +1,23 @@
+---
+- name: HTPPS enabled
+  hosts: web1
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: Add firewall source
+      firewalld:
+        permanent: yes
+        source: 172.20.1.2
+        immediate: yes
+        state: enabled
+        zone: internal
+
+    - name: Add HTTPS
+      firewalld: 
+        zone: internal
+        service: HTTPS
+        permanent: yes
+        immediate: yes
+        state: enabled
+    - name: Reload
+      command: firewall-cmd --reload
