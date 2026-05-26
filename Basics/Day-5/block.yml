@@ -1,0 +1,11 @@
+---
+- name: Block UDP
+  hosts: web1
+  gather_facts: no
+  tasks:
+    - firewalld:
+        permanent: yes
+        port: 161/udp
+        zone: block
+        state: enabled
+        immediate: yes
