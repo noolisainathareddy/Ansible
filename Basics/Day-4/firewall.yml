@@ -1,0 +1,14 @@
+---
+- name: Install and Run firewalld
+  gather_facts: no
+  hosts: web1
+  tasks:
+    - name: Installing
+      package:  
+        name: firewalld
+        state: present
+    - name: Run the service
+      service:
+        name: firewalld
+        state: started
+        enabled: yes
