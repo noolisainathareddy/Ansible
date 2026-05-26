@@ -1,0 +1,11 @@
+---
+- name: Whitelist Web2 Ip
+  hosts: web1
+  gather_facts: no
+  tasks:
+    - firewalld:
+        state: enabled 
+        source: 172.20.1.101
+        immediate: yes
+        permanent: yes
+        zone: internal
