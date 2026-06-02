@@ -1,0 +1,14 @@
+---
+- name: Updating a firewalld
+  hosts: web1
+  gather_facts: no
+  tasks:
+    - name: Update
+      blockinfile:
+        owner: apache
+        group: apache
+        insertbefore: BOF
+        path: /var/www/html/index.html
+        block: |
+          Welcome to KodeKloud!
+          This is Ansible Lab.

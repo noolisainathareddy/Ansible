@@ -1,0 +1,14 @@
+---
+- name: Replace and start httd
+  hosts: web1
+  gather_facts: no
+  tasks:
+    - name: Replace
+      replace:
+        path: /etc/httpd/conf/httpd.conf
+        regexp: '^(Listen)\s+80\s*$'
+        replace: 'LIsten 8080'
+    - name: Start the service
+      service:
+        name: httpd
+        state: restarted
