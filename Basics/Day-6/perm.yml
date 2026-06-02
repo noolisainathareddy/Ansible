@@ -1,0 +1,13 @@
+---
+- name: Create file
+  hosts: web1
+  gather_facts: no
+  tasks:
+    - name: Touch file
+      file:
+        path: /opt/data/perm.txt
+        mode: '0640'
+        state: touch  
+
+
+        
