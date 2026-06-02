@@ -38,3 +38,7 @@ Users and Groups:
 
 authorized_keys:
     To setup SSH keys on the remote host. 
+file:
+    To create a file
+lineinfile:
+    To add/update a line in a file.

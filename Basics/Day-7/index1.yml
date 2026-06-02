@@ -1,0 +1,10 @@
+---
+- name: File Creation
+  hosts: web1
+  gather_facts: no
+  tasks:
+    - name: creating a file
+      lineinfile:
+        path: /var/www/html/index.html
+        line: 'This line was added using Ansible lineinfile module!'
+        create: true
