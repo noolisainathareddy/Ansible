@@ -1,0 +1,10 @@
+- name: Add a user for c2c
+  hosts: all
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: Create user
+      user:
+        name: neymarsabin
+        state: present
+        expires: 1704067199
