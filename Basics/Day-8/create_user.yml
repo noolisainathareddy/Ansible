@@ -1,0 +1,14 @@
+- name: Create a group and user
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Create group
+      group:
+        name: admin
+        state: present
+    
+    - name: Create user
+      user:
+        name: admin
+        state: present
+        uid: 2048
