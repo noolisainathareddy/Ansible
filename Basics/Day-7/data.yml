@@ -1,0 +1,36 @@
+- name: Untar and unzip
+  hosts: web1
+  gather_facts: no
+  tasks:
+    - name: Untar 
+      unarchive:
+        dest: /srv
+        remote_src: yes
+        src: /root/data.tar.gz
+    - name: Delete the file
+      file:
+        path: /root/data.tar.gz
+        state: absent
+
+- name: Unarchive
+  gather_facts: no
+  hosts: web1
+  tasks:
+    - name: Unarchive folder
+      unarchive:
+        dest: /root
+        src: https://github.com/kodekloudhub/Hello-World/archive/master.zip
+        remote_src: yes
+
+- name: Archive
+  hosts: web1
+  gather_facts: no
+  tasks:
+    - name: Archive the multiple files
+      archive:
+        dest: /root/files.tar.bz2
+        path: 
+          - /root/file1.txt
+          - /usr/local/share/file2.txt
+          - /var/log/lastlog. Create a bz2
+        format: bz2

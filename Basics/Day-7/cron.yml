@@ -1,0 +1,38 @@
+- name: Clear LastLog
+  gather_facts: no
+  hosts: node00
+  tasks:
+    - name: Create Cron Job
+      cron:
+        name: "Clear log"
+        minute: "0"
+        hour: "0"
+        job: echo "" > /var/log/lastlog
+
+- name: Run the script
+  gather_facts: no
+  hosts: node00
+  tasks:
+    - cron:
+        name: "Run the memory check script"
+        minute: "0"
+        hour: "*/2"
+        job: "sh /root/free.sh"
+
+- name: Remove Cron job
+  gather_facts: no
+  hosts: node00
+  tasks:
+    - cron:
+        name: "Run the memory check script"
+        state: absent
+
+
+- name: Reboot
+  gather_facts: no
+  hosts: node00
+  tasks:
+    - cron:
+        name: "Clear files after reboot"
+        job: "rm -rf /tmp/*"
+        special_time: reboot

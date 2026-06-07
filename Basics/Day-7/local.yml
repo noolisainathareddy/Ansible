@@ -1,0 +1,8 @@
+- name: Unarchive folder
+  hosts: web1
+  gather_facts: no
+  tasks:
+    - name: Unarchive the file
+      unarchive:
+        dest: /tmp
+        src: local.zip
