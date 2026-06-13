@@ -1,0 +1,13 @@
+- name: Delete admin user and group
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: delete user
+      user:
+        name: admin
+        state: absent
+        
+    - name: delete group
+      group: 
+        name: admin
+        state: absent
