@@ -1,0 +1,11 @@
+-   name: Deploy Lamp
+    hosts: all
+    become: yes
+    tasks:
+        -   name: Install lib
+            yum:
+                name:
+                    -   python3-libselinux
+                    -   python3-libsemanage
+                    -   firewalld
+                state: installed
