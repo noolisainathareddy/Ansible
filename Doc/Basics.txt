@@ -133,3 +133,10 @@ Privilege Escalation:
 
 	become_user:
 	User that you ‘become’ after using privilege escalation. The remote/login user must have permissions to become this user.
+
+
+Variable Precedence:
+	Command Line Variables (Hight Priority)
+	Playbook variables
+	Group Variables 
+	Host Variables (Low Priority)
