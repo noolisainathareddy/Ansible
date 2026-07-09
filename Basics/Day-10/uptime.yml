@@ -1,0 +1,7 @@
+- name: Uptime
+  hosts: all
+  tasks:
+    - shell: uptime
+      register: uptime_output
+    - debug:
+        var: uptime_output
