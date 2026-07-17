@@ -1,0 +1,13 @@
+- name: Install Web Server and Start Install
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: install servers
+      when: ansible_facts['distribution'] == 'CentOS'
+      block:
+        - yum: 
+            name: httpd
+            state: present
+        - service:
+            name: httpd
+            state: started
