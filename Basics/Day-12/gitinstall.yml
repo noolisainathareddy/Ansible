@@ -1,0 +1,14 @@
+- name: Verifying Git Installation
+  hosts: web2
+  gather_facts: true
+  tasks:
+    - shell: dpkg -l Git
+      register: check_if_git_installed
+      ignore_errors: true
+
+    - debug: var=check_if_git_installed
+    - shell: echo "Oops, git is missing" > /tmp/is_git_installed.txt
+      when: check_if_git_installed != 0 
+    
+    - shell: git --version > /tmp/is_git_installed.txt
+      when: check_if_git_installed.rc == 0

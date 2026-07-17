@@ -1,0 +1,16 @@
+- name: Install multiple softwares
+  hosts: all
+  vars:
+    packages:
+      - name: nginx
+        required: true
+      - name: npm
+        required: tru
+  tasks:
+    - name: Install {{ item.name }}
+      apt:
+        - name: {{ item.name }}
+          state: present
+      when: item.required == true
+      loop: "{{ packages }}"
+    

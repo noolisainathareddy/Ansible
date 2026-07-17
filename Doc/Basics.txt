@@ -140,3 +140,7 @@ Variable Precedence:
 	Playbook variables
 	Group Variables 
 	Host Variables (Low Priority)
+
+Conditional statements:
+	When you want to install same same software on two different Operating Systems, you don't have to 
+	create two playbooks, use conditional statemets with in a single playbook. 

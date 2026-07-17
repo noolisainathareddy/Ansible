@@ -1,0 +1,15 @@
+- name: Install WebServer
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: Install Webserver on Ubuntu
+      package:
+        name: apache2
+        state: present
+      when: ansible_distribution == "Ubuntu"
+    
+    - name: Install Webserver on CentOS
+      package:
+        name: httpd
+        state: present
+      when: ansible_distribution == "CentOS"
